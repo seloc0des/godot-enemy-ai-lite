@@ -23,4 +23,4 @@ Lite scenes keep working while Enemy AI (Lite) stays installed. The full brain (
 `attack_node_path` points at, so after giving an enemy the Pro brain, click
 **Make Enemy (brain)** on it once and the dock points it at the enemy's hitbox.
 
-Get it on itch.io. MIT-licensed; use it in commercial projects.
+Get it on itch.io. Use it in any game you make, commercial or not.
