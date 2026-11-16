@@ -1,6 +1,7 @@
 # Quick Start: Enemy AI (Lite)
 
-Goal: an enemy that chases you and gives up — no code.
+Goal: an enemy that chases you and gives up, with no code.
+This works in 2D and in 3D. The 3D steps are marked **3D**.
 
 ## 1. Install
 
@@ -15,6 +16,15 @@ Goal: an enemy that chases you and gives up — no code.
   **Make Enemy (brain)**. A picture goes inside a new `Enemy` body that takes
   its place, so the two move together, and Ctrl+Z puts it back. Any other node
   gets a new `Enemy` under it.
+
+**3D:** open a scene whose top node is a Node3D. The dock's button reads **Make 3D
+Enemy (brain)** and the fields switch to metres (detect radius 12, chase speed 4).
+Select a mesh (a MeshInstance3D, or any node that draws), a CharacterBody3D, or any
+other Node3D and click it. A mesh goes inside a new `Enemy` CharacterBody3D that takes
+its place, and Ctrl+Z puts it back. Anything else gets a new `Enemy` under it: a
+capsule body 1.8 m tall with collision, a red capsule mesh with a nose on the front so
+you can see which way it faces, and the brain. The brain needs a floor under it to
+stand on, because gravity pulls it down.
 
 It hunts anything in the `"player"` group. The Controller packs join it
 automatically. Otherwise select your player node and click **Make the selected
@@ -60,9 +70,12 @@ EnemyAILite.state_changed.connect(func(enemy, from, to):
 
 ## Tuning
 
+In 3D every distance is in metres (the defaults are 12 to notice, 1.8 to swing and 25
+for the leash) and speeds are metres per second.
+
 `detect_radius` (notice), `attack_radius` + `attack_cooldown` (swing),
 `attack_duration` (how long a Combat hitbox on the body stays on per swing),
-`give_up_radius` (leash, measured from its start position — it walks home and
+`give_up_radius` (leash, measured from its start position: it walks home and
 is deaf until it arrives).
 
 ## Next

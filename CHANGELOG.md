@@ -1,5 +1,35 @@
 # Changelog: Enemy AI (Lite)
 
+## 1.2.0 (2026-10-23)
+
+Enemy AI Lite works in 3D now, next to the 2D node.
+
+- **`EnemyBrainLite3D`.** The 3D enemy brain. Put it on a CharacterBody3D and it idles, chases,
+  attacks and walks home when you kite it, with the same states, signals, `EnemyAILite` bus events
+  and Inspector fields as `EnemyBrainLite`. Distances are metres and speeds are metres per second
+  (it chases at 4 m/s and notices you from 12 m). Gravity pulls the body down, so slopes and ledges
+  work. The body turns to face where it runs, and to face its target while it attacks. A Combat 3D
+  hitbox on the body is switched on for each attack, the same way a 2D one is.
+- **The 3D leash is judged on the ground.** `EnemyBrainLite3D` measures the leash and arrival at
+  home on the ground, so an enemy that falls far below home does not flip state every frame.
+- **The Enemy AI Lite tab builds 3D too.** With a 3D scene open (its top node is a Node3D), the
+  button reads **Make 3D Enemy (brain)** and the fields switch to metres. It builds a capsule body
+  with collision, a visible capsule mesh with a nose so you can see which way it faces, and the
+  brain. A mesh you select goes inside the new Enemy, and Ctrl+Z puts it back. With Combat installed
+  it sizes the attack radius from the 3D hitbox and hurtbox, the same as in 2D. In a 2D scene
+  nothing changed.
+- **A 3D demo.** `demo/enemy_demo_3d.tscn` has two chasers and a capsule you steer with the arrow
+  keys. The 2D demo is still the one that opens first.
+- **A deleted target no longer freezes the brain.** If the enemy's target was removed while it was
+  chasing or attacking, the brain ran on at its last speed or stood still in attack. It now fires
+  `target_lost` and switches to another target in range, or walks home when there is none. This
+  applies to `EnemyBrainLite` and `EnemyBrainLite3D`.
+- **A dead enemy that stays in the scene stops fighting.** With "remove on death" off, or a respawn
+  delay, the corpse kept attacking. If a sibling health node answers `is_alive()` (Combat Lite's
+  health does), the brain now closes its hitbox, goes idle and ignores targets while it is dead,
+  and hunts again if it revives.
+- **Everything else in 2D is as before**, and so are scenes you already built.
+
 ## 1.1.3 (2026-10-12)
 
 The tabs show their names on Godot 4.5.
@@ -63,19 +93,19 @@ Click your enemy's picture, then Make Enemy, and the two move together.
   file pickers and the notes at the bottom ran past the edge. It now asks for the same width as the
   other tabs.
 
-## 1.0.2 — 2026-08-10
+## 1.0.2 (2026-08-10)
 
 A quieter first run. No change to how anything behaves.
 
 - **The debugger no longer fills with warnings when you press Play.** The event bus declares the signals every system talks through, and Godot flagged each one as unused because the code that sends and receives them lives in the other files. Nothing was broken, but a first run could print a stack of warnings that looked like your mistakes. They're gone.
 
-## 1.0.1 — 2026-08-10
+## 1.0.1 (2026-08-10)
 
 Safer download.
 
 - **The download can't damage a project you're already working on.** It now unzips into one folder named after the pack, instead of putting files loose at the top. Before this, unzipping it straight into an existing game overwrote that game's name, its start-up scene and the list of add-ons you had switched on. It can't reach any of that now.
-- **Added START-HERE.txt and INSTALLING.txt** at the top of the folder — what's in the download, the two-minute install, and what to do if something goes wrong. Plain text, opens anywhere.
-- **Fixed: the docs pointed at a self-test file that wasn't there.** They said `tools/verify.tscn`; in the download it's `tools/enemy_ai_lite/verify.tscn`. The paths now match what's actually in the box.
+- **Added START-HERE.txt and INSTALLING.txt** at the top of the folder: what's in the download, the two-minute install, and what to do if something goes wrong. Plain text, opens anywhere.
+- **Fixed: the docs pointed at a self-test file that wasn't there.** They said `tools/verify.tscn`, but in the download it's `tools/enemy_ai_lite/verify.tscn`. The paths now match what's actually in the box.
 
 ## 1.0.0
 

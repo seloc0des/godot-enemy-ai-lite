@@ -18,6 +18,8 @@ Enemy AI (Lite) is the free core: the notice/chase/attack/leash brain.
 | Spawner: wave mode (+ all_waves_cleared) | — | ✅ |
 | Death counting via any `died` signal | — | ✅ |
 | Patrol route + spawner dock buttons | — | ✅ |
+| 3D brain (CharacterBody3D, metres) | ✅ | ✅ |
+| 3D patrol routes and 3D spawner | — | ✅ |
 
 Lite scenes keep working while Enemy AI (Lite) stays installed. The full brain (`EnemyBrain`, with the `EnemyAI` autoload) has every setting, signal and method the Lite brain has, under the same names, and hunts the same `"player"` group. The Pro brain swings whatever its
 `attack_node_path` points at, so after giving an enemy the Pro brain, click

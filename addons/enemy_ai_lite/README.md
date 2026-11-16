@@ -1,9 +1,9 @@
 # Enemy AI (Lite)
 
-Free no-code enemy brain for **Godot 4.5+**. Drop it on any CharacterBody2D:
-it idles, chases whatever is in the `"player"` group, attacks on a cooldown,
-and leashes back home when kited — all Inspector radii, baked on from the
-editor chooser dock.
+Free no-code enemy brain for **Godot 4.5+**, in 2D and in 3D. Drop it on any
+CharacterBody2D or CharacterBody3D: it idles, chases whatever is in the
+`"player"` group, attacks on a cooldown, and leashes back home when kited. All
+Inspector radii, baked on from the editor chooser dock.
 
 Free Lite tier of the SELODEV **Enemy AI** addon. Pro adds waypoint patrol
 routes, flee-at-low-health, swinging any node you point the brain at, and the spawner
@@ -15,7 +15,8 @@ with endless + wave modes. Deliberately **not** a behavior-tree framework.
 2. Enable **Enemy AI (Lite)** in Project Settings → Plugins.
 3. Select your enemy's picture (or any node) → in the **Enemy AI Lite** dock
    click **Make Enemy (brain)**. A picture goes inside the new Enemy, so the two
-   move together.
+   move together. In a 3D scene (the top node is a Node3D) the button reads
+   **Make 3D Enemy (brain)** and the fields are in metres.
 4. Select your player node → click **Make the selected node the player** in the
    same dock (the Controller packs already do this).
 
@@ -24,16 +25,21 @@ leash back home. Zero code.
 
 ## What it does
 
-- `EnemyBrainLite` — idle/chase/attack/return driving the parent
+- `EnemyBrainLite`: idle/chase/attack/return driving the parent
   CharacterBody2D (top-down). `detect_radius` to notice, `attack_radius` +
   `attack_cooldown` to swing (the `attacked` signal is where you deal damage),
-  `give_up_radius` to leash home — mid-attack included, so it can't be kited
+  `give_up_radius` to leash home, mid-attack included, so it can't be kited
   forever. A Combat hitbox on the body is switched on for each attack
   (`attack_duration`), so it hits once per swing while the player stays in
   reach. Signals: `state_changed`, `target_acquired`, `target_lost`, `attacked`.
-- `EnemyAILite` autoload — `state_changed` + `attack_started` mirrored globally
+- `EnemyBrainLite3D`: the same brain for a CharacterBody3D, in metres and
+  seconds. Same states, signals, bus events and Inspector fields, plus gravity
+  and a turn speed. The body turns to face where it runs and its target while it
+  attacks. A Combat 3D hitbox on the body is switched on for each attack.
+- `EnemyAILite` autoload: `state_changed` + `attack_started` mirrored globally
   for HUDs and music.
-- **Chooser dock** — bake a brain onto the selected node (shape included).
+- **Chooser dock:** bake a brain onto the selected node (shape included). In a 3D
+  scene it builds the 3D version.
 
 ## Verify
 
