@@ -19,8 +19,7 @@ Enemy AI (Lite) is the free core: the notice/chase/attack/leash brain.
 | Death counting via any `died` signal | — | ✅ |
 | Patrol route + spawner dock buttons | — | ✅ |
 
-Your Lite scenes carry forward — Pro's brain is a superset with the same
-radii, signals, and `"player"`-group hunting. The Pro brain swings whatever its
+Lite scenes keep working while Enemy AI (Lite) stays installed. The full brain (`EnemyBrain`, with the `EnemyAI` autoload) has every setting, signal and method the Lite brain has, under the same names, and hunts the same `"player"` group. The Pro brain swings whatever its
 `attack_node_path` points at, so after giving an enemy the Pro brain, click
 **Make Enemy (brain)** on it once and the dock points it at the enemy's hitbox.
 
