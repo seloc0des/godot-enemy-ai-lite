@@ -5,7 +5,7 @@ CharacterBody2D or CharacterBody3D: it idles, chases whatever is in the
 `"player"` group, attacks on a cooldown, and leashes back home when kited. All
 Inspector radii, baked on from the editor chooser dock.
 
-Free Lite tier of the SELODEV **Enemy AI** addon. Pro adds waypoint patrol
+Free Lite tier of the SELODEV **Enemy AI** addon. The full version adds waypoint patrol
 routes, flee-at-low-health, swinging any node you point the brain at, and the spawner
 with endless + wave modes. Deliberately **not** a behavior-tree framework.
 

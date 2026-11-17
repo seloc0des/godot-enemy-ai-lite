@@ -34,7 +34,7 @@ the scene is marked as the player yet.
 ## 3. Deal damage (needs the Combat pack)
 
 Enemy AI Lite chases and attacks, but it has no health or damage of its own.
-Damage comes from the Combat pack (Pro or Lite). With both installed, no code:
+Damage comes from the Combat pack (full or Lite). With both installed, no code:
 
 - Select your player. In the **Combat** dock set the **Side** above
   **Add Health + Hurtbox** to *Player side (enemies can hurt it)*, then click

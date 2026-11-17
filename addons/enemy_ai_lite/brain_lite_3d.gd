@@ -238,7 +238,7 @@ func _face(delta: float) -> void:
 	_body.rotation.y += clampf(angle_difference(_body.rotation.y, want), -step, step)
 
 
-# A Combat hitbox (Pro or Lite) on the body, told apart by its exports so this
+# A Combat hitbox (full or Lite) on the body, told apart by its exports so this
 # brain never needs the Combat pack. A hitbox only hits when something starts
 # touching it, so it goes off after each attack and back on for the next one:
 # coming back on is what hits the player again while they stay in reach.

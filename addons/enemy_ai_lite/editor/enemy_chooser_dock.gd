@@ -2,7 +2,7 @@
 extends Control
 
 # No-code chooser dock (Lite). Select a node, one click makes it an enemy that
-# chases the "player" group. Pro adds patrol routes, flee, swinging any node,
+# chases the "player" group. The full version adds patrol routes, flee, swinging any node,
 # and the wave spawner. When the open scene's root is a Node3D, the same button
 # builds the 3D twin (CharacterBody3D, EnemyBrainLite3D) with metre values. Any
 # other root keeps the 2D behaviour.
@@ -87,7 +87,7 @@ func _build() -> void:
 
 	var pro := Label.new()
 	pro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	pro.text = "Pro unlocks: waypoint patrol routes, flee at low health, swinging any node you point the brain at (a sword arc, a spell area), and the spawner (endless + waves)."
+	pro.text = "The full version unlocks: waypoint patrol routes, flee at low health, swinging any node you point the brain at (a sword arc, a spell area), and the spawner (endless + waves)."
 	pro.add_theme_color_override("font_color", Color(0.62, 0.66, 0.78))
 	v.add_child(pro)
 
@@ -508,7 +508,7 @@ func _touch(body: Node, root: Node) -> float:
 
 
 
-# Combat Pro and Lite boxes, told apart by their exports so neither pack has to
+# the full Combat and Lite boxes, told apart by their exports so neither pack has to
 # be installed for this dock to load.
 func _is_hitbox(n: Node) -> bool:
 	return (n is Area2D or n is Area3D) and "team" in n and ("base_damage" in n or "damage" in n)

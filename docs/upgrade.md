@@ -1,9 +1,9 @@
-# Upgrading to Enemy AI (Pro)
+# Upgrading to the full Enemy AI
 
 Enemy AI (Lite) is the free core: the notice/chase/attack/leash brain.
-**Enemy AI (Pro)** adds everything around it.
+**The full Enemy AI** adds everything around it.
 
-| | Lite (free) | Pro |
+| | Lite (free) | Full |
 |---|---|---|
 | Idle/chase/attack/return brain | ✅ | ✅ |
 | Detect / attack / give-up radii | ✅ | ✅ |
@@ -21,8 +21,8 @@ Enemy AI (Lite) is the free core: the notice/chase/attack/leash brain.
 | 3D brain (CharacterBody3D, metres) | ✅ | ✅ |
 | 3D patrol routes and 3D spawner | — | ✅ |
 
-Lite scenes keep working while Enemy AI (Lite) stays installed. The full brain (`EnemyBrain`, with the `EnemyAI` autoload) has every setting, signal and method the Lite brain has, under the same names, and hunts the same `"player"` group. The Pro brain swings whatever its
-`attack_node_path` points at, so after giving an enemy the Pro brain, click
+Lite scenes keep working while Enemy AI (Lite) stays installed. The full brain (`EnemyBrain`, with the `EnemyAI` autoload) has every setting, signal and method the Lite brain has, under the same names, and hunts the same `"player"` group. The full brain swings whatever its
+`attack_node_path` points at, so after giving an enemy the full brain, click
 **Make Enemy (brain)** on it once and the dock points it at the enemy's hitbox.
 
 Get it on itch.io. Use it in any game you make, commercial or not.
